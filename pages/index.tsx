@@ -15,6 +15,7 @@ const Home: NextPage = () => {
       <main className={classes.main}>
         <header>
           <h1>טקסט חופשי לתמונה</h1>
+          {/*  eslint-disable-next-line react/no-unescaped-entities */}
           <p>מונע ע"י stable-diffusion</p>
         </header>
         <PictureMaker />
