@@ -20,7 +20,12 @@ export const Idle: React.FC<IdleProps> = ({ onSubmit }) => {
 
   return (
     <div className={classes.container}>
-      <textarea rows={3} value={value} onChange={handleChange()} />
+      <textarea
+        rows={3}
+        value={value}
+        onChange={handleChange()}
+        placeholder={'אסטרונאוט מרחף באוקיינוס ליד דגים וכוכבים, ציור שמן'}
+      />
       <button onClick={handleSubmit}>שליחה לעיבוד</button>
     </div>
   );

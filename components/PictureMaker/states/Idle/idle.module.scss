@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    width: 100%;
 
     & > button {
         border: none;
@@ -19,6 +20,7 @@
         // height: min-content;
         // max-width: 40ch;
         // max-height: 10ch;
+        min-width: 20vw;
         border: 1px solid grey;
         border-radius: .3rem;
         padding: {
