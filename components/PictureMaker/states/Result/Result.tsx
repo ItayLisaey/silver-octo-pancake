@@ -14,7 +14,6 @@ export const Result = (props: ResultProps) => {
         <Image
           src={props.state.context.result.location}
           alt=''
-          layout='responsive'
           width={500}
           height={500}
         />
