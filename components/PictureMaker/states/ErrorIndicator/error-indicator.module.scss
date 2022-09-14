@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 70%;
+
+    & > h3 {
+        color: rgb(158, 31, 31);
+    }
+
+    & > button {
+        margin: 0 auto;
+        border: none;
+        border-radius: .3rem;
+        padding: {
+            inline: 1rem;
+            block: .5rem;
+        }
+        cursor: pointer;
+    }
+
+}

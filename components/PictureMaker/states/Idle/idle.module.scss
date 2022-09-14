@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    & > button {
+        border: none;
+        border-radius: .3rem;
+        padding: {
+            inline: 1rem;
+            block: .5rem;
+        }
+        cursor: pointer;
+    }
+
+    & > textarea {
+        // height: min-content;
+        // max-width: 40ch;
+        // max-height: 10ch;
+        border: 1px solid grey;
+        border-radius: .3rem;
+        padding: {
+            inline: 1rem;
+            block: .5rem;
+        }
+    }
+}
