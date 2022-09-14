@@ -1,27 +1,24 @@
 {
   "name": "silver-octo-pancake",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "solid-start dev",
-    "build": "solid-start build",
-    "start": "solid-start start"
-  },
-  "type": "module",
-  "devDependencies": {
-    "autoprefixer": "^10.4.9",
-    "postcss": "^8.4.16",
-    "solid-start-node": "next",
-    "tailwindcss": "^3.1.8",
-    "typescript": "^4.8.3",
-    "vite": "^3.1.0"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@solidjs/meta": "^0.28.0",
-    "@solidjs/router": "^0.4.3",
-    "solid-js": "^1.5.4",
-    "solid-start": "next",
-    "undici": "^5.10.0"
+    "next": "12.3.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
-  "engines": {
-    "node": ">=14"
+  "devDependencies": {
+    "@types/node": "18.7.18",
+    "@types/react": "18.0.20",
+    "@types/react-dom": "18.0.6",
+    "eslint": "8.23.1",
+    "eslint-config-next": "12.3.0",
+    "typescript": "4.8.3"
   }
 }
