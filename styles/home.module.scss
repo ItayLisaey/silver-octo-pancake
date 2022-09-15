@@ -17,4 +17,22 @@
     align-items: center;
     gap: .5rem;
   }
+
+  a {
+    display: flex;
+    gap: 1ch;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2 ease all;
+
+    & > span {
+      transition: 0.2 ease all;
+
+    }
+    &:hover {
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
 }

@@ -17,8 +17,15 @@ const Home: NextPage = () => {
         <header>
           <Image src='/bot-black.svg' alt='bot icon' width={60} height={60} />
           <h1>טקסט חופשי לתמונה</h1>
-          {/*  eslint-disable-next-line react/no-unescaped-entities */}
-          <p>מונע ע"י stable-diffusion</p>
+          <a
+            href='https://github.com/CompVis/stable-diffusion'
+            target={'_blank'}
+            rel={'noreferrer'}
+          >
+            {/*  eslint-disable-next-line react/no-unescaped-entities */}
+            <span>מונע ע"י stable-diffusion</span>
+            <i className='fa-solid fa-arrow-up-right-from-square'></i>
+          </a>
         </header>
         <PictureMaker />
       </main>

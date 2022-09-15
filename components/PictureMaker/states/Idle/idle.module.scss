@@ -13,7 +13,14 @@
             inline: 1rem;
             block: .5rem;
         }
+        transition: all .2s ease;
         cursor: pointer;
+        &:hover {
+            transform: scale(1.05);
+        }
+        &:active {
+            transform: scale(.95);
+        }
     }
 
     & > textarea {
