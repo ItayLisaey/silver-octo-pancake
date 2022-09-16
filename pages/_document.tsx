@@ -17,7 +17,7 @@ export default function Document() {
           crossOrigin='anonymous'
           referrerPolicy='no-referrer'
         />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3150420383783191"
+       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3150420383783191"
      crossOrigin="anonymous"></script>
       </Head>
       <body>
