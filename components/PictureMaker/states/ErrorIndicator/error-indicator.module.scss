@@ -3,12 +3,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
     width: 100%;
     max-width: 70%;
 
     & > h3 {
+        text-align: center;
         color: rgb(158, 31, 31);
+        font-weight: 500;
+        max-width: 30ch;
     }
 
     & > button {

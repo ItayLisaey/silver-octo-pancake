@@ -7,7 +7,10 @@ type Data =
   | {
       location: string;
     }
-  | string;
+  | {
+      code: number;
+      message: string;
+    };
 
 export default async function handler(
   req: NextApiRequest,
@@ -30,7 +33,18 @@ export default async function handler(
     res.status(201).json({
       location: imageUrl,
     });
-  } catch {
-    res.status(500).json('Error getting prompt');
+  } catch (e: any) {
+    if (e.message === '402') {
+      res.status(500).json({
+        code: 402,
+        message: 'API key expired',
+      });
+      return;
+    }
+
+    res.status(500).json({
+      code: 500,
+      message: 'Error getting prompt',
+    });
   }
 }

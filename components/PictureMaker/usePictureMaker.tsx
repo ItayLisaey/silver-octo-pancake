@@ -13,14 +13,15 @@ type ContextObject = {
   result?: {
     location: string;
   };
-  error?: string;
+  error?: {
+    code: number;
+    message: string;
+  };
 };
 
 type EventObject = {
   type: string;
-  value: {
-    location: string;
-  };
+  value: any;
 };
 
 export type PictureMakerState = State<
@@ -56,10 +57,18 @@ export const pictureMakerMachine = createMachine<ContextObject, EventObject>({
     loading: {
       on: {
         success: {
-          actions: assign({ result: (context, event) => event.value }),
+          actions: assign({
+            result: (context, event) => event.value,
+          }),
           target: 'result',
         },
         error: {
+          actions: assign({
+            error: (context, event) => {
+              console.log('event', event);
+              return event.value;
+            },
+          }),
           target: 'error',
         },
       },

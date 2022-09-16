@@ -12,15 +12,18 @@ export const PictureMaker = (props: PictureMakerProps) => {
     send('submit-prompt');
 
     const result = await fetch(`/api/prompt?p=${value}`);
-    if (result.ok) {
-      const json = await result.json();
+    const json = await result.json();
+    if (result.status === 201) {
       send('success', {
         value: {
           location: json.location,
         },
       });
     } else {
-      send('error');
+      console.log(json);
+      send('error', {
+        value: json,
+      });
     }
   };
 
@@ -28,8 +31,13 @@ export const PictureMaker = (props: PictureMakerProps) => {
     idle: <Idle onSubmit={handleSubmit} />,
     loading: <Loading />,
     result: <Result state={state} reset={() => send('reset')} />,
-    error: <ErrorIndicator reset={() => send('reset')} />,
+    error: <ErrorIndicator state={state} reset={() => send('reset')} />,
   };
 
-  return states[state.value as keyof typeof states];
+  return (
+    <>
+      {states[state.value as keyof typeof states]}
+      {/* <pre dir='ltr'>{JSON.stringify(state, null, 2)}</pre> */}
+    </>
+  );
 };

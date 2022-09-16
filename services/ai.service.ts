@@ -12,38 +12,52 @@ class AIModelService {
   }
 
   async getInitalPrompt(text: string) {
-    const { data } = await axios.post<{
-      urls: {
-        get: string;
-      };
-      output: string[] | null;
-    }>(
-      this.AIMODEL_API_URL,
-      {
-        version: this.AIMODEL_API_VERSION,
-        input: {
-          prompt: text,
+    try {
+      const { data } = await axios.post<{
+        urls: {
+          get: string;
+        };
+        output: string[] | null;
+      }>(
+        this.AIMODEL_API_URL,
+        {
+          version: this.AIMODEL_API_VERSION,
+          input: {
+            prompt: text,
+          },
         },
-      },
-      {
-        headers: {
-          Authorization: `Token ${this.AIMODEL_API_KEY}`,
-        },
-      }
-    );
+        {
+          headers: {
+            Authorization: `Token ${this.AIMODEL_API_KEY}`,
+          },
+        }
+      );
 
-    return data.urls.get;
+      return data.urls.get;
+    } catch (e: any) {
+      const status = e?.response?.status;
+      if (status) {
+        throw new Error(status);
+      }
+      console.error(e.response);
+      throw new Error(e.response.code);
+    }
   }
 
   async getPromptByUrl(url: string) {
-    const { data } = await axios.get<{
-      output: string[] | null;
-    }>(url, {
-      headers: {
-        Authorization: `Token ${this.AIMODEL_API_KEY}`,
-      },
-    });
-    return data.output;
+    try {
+      const { data } = await axios.get<{
+        output: string[] | null;
+      }>(url, {
+        headers: {
+          Authorization: `Token ${this.AIMODEL_API_KEY}`,
+        },
+      });
+      return data.output;
+    } catch (e: any) {
+      console.error(e);
+      throw new Error(e.message);
+    }
   }
 
   async getPrompt(text: string) {
